@@ -1,7 +1,9 @@
 # Monte-Carlo-Noise-Removal-using-Sobel-Operator-and-Guided-Image-Filter
-Digital Image Processing Course Project (5th Semester UG - IIIT Hyderabad)
+Digital Image Processing Course Project (B.Tech. 5th Semester - IIIT Hyderabad)
 
-Vinit Mehta - 2022111001 and Pearl Shah - 2022102073
+Team Members:
+- Vinit Mehta: 2022111001
+- Pearl Shah: 2022102073
 
 This project replicates the implementation of the following research paper:
 ```
