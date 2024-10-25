@@ -1,0 +1,71 @@
+Scale -1 1 1
+Film "image"
+"integer xresolution" [512] 
+"integer yresolution" [512]
+"float scale" [1]
+"float gamma" [0.5]
+
+
+Sampler "lowdiscrepancy"
+
+LookAt -450 300 0
+       -180 50 -50  
+	   0 1 0
+
+Camera "perspective" "float fov" [80]
+	"float focaldistance" [450] 
+	"float lensradius" [20]
+
+
+WorldBegin
+
+AttributeBegin
+  AreaLightSource "area" "color L" [8 8 8] "integer nsamples" [1]
+  Translate -400 200 800
+  
+  Rotate 6.3794 1 0 0
+  Rotate -26.5651 0 1 0
+  Rotate 180 0 1 0
+  
+  Shape "disk" "float radius" [300]
+AttributeEnd
+
+ObjectBegin "BOX"
+	Texture "box_tex" "color" "imagemap" "string filename" ["textures/toasters/Stone.exr"]
+    Material "matte" "texture Kd" "box_tex"
+	Shape "wavefront" "string filename" ["geometry/toasters/BOX.obj"]
+ObjectEnd
+
+ObjectBegin "HEAD"
+	Texture "head_tex" "color" "imagemap" "string filename" ["textures/toasters/Head.exr"]
+    Material "matte" "texture Kd" "head_tex"
+	Shape "wavefront" "string filename" ["geometry/toasters/HEAD.obj"]
+ObjectEnd
+
+ObjectBegin "BODY"
+	Texture "body_tex" "color" "imagemap" "string filename" ["textures/toasters/Jaw.exr"]
+    Material "matte" "texture Kd" "body_tex"
+	Shape "wavefront" "string filename" ["geometry/toasters/BODY.obj"]
+ObjectEnd
+
+
+ObjectBegin "FEET"
+    Texture "feet_tex" "color" "imagemap" "string filename" ["textures/toasters/Feet.exr"]
+    Material "matte" "texture Kd" "feet_tex"
+	Shape "wavefront" "string filename" ["geometry/toasters/FEET.obj"]
+ObjectEnd
+
+ObjectBegin "KEY"
+    Texture "key_tex" "color" "imagemap" "string filename" ["textures/toasters/Key.exr"]
+    Material "matte" "texture Kd" "key_tex"
+	Shape "wavefront" "string filename" ["geometry/toasters/KEY.obj"]
+ObjectEnd
+
+
+ObjectInstance "BOX"
+ObjectInstance "HEAD"
+ObjectInstance "BODY"
+ObjectInstance "FEET"
+ObjectInstance "KEY"
+
+WorldEnd

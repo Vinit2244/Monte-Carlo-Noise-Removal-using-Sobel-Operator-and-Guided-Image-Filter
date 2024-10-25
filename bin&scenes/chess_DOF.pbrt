@@ -1,0 +1,176 @@
+Film "image" 
+"integer xresolution" [750] 
+"integer yresolution" [1000]
+"float scale" [4]
+"float gamma" [0.5]
+
+Sampler "lowdiscrepancy"
+ 
+LookAt 0.15880111 0.084947467 0.39687502  0.037700366 0.049198259 0.13892853  0 1 0
+
+Camera "perspective" "float fov" [17.0]
+    "float focaldistance" [0.3] 
+    "float lensradius" [0.005]
+
+
+WorldBegin
+
+LightSource "point" "point from" [.33452 .2950 .25841] "color I" [.75 .75 .75]
+LightSource "point" "point from" [-.428147 .422 .123599] "color I" [.20 .20 .20]
+LightSource "point" "point from" [.274927 .32900 -.368014] "color I" [.15 .15 .15]
+LightSource "point" "point from" [-.158656 .385 .336004] "color I" [.50 .50 .50]
+LightSource "point" "point from" [-1.0 -0.05 1.0] "color I" [2.6 2.6 2.6]
+LightSource "point" "point from" [.23452 .3950 .25841] "color I" [.37 .37 .37]
+LightSource "point" "point from" [-.428147 .522 .123599] "color I" [.10 .10 .10]
+LightSource "point" "point from" [.374927 .22900 -.368014] "color I" [.07 .07 .07]
+LightSource "point" "point from" [-.358656 .185 .336004] "color I" [.25 .25 .25]
+
+ObjectBegin "bishop1.white.obj"
+    Texture "constant_tex" "color" "constant" "color value" [.9 .9 .9]
+        #Material "matte" "color Kd" [.9 .9 .9]
+        Material "plastic" "texture Kd" "constant_tex"
+    Shape "wavefront" "string filename" ["geometry/chess/bishop1.white.obj"]
+ObjectEnd
+ObjectBegin "bishop2.white.obj"
+    Texture "constant_tex" "color" "constant" "color value" [.9 .9 .9]
+        #Material "matte" "color Kd" [.9 .9 .9]
+        Material "plastic" "texture Kd" "constant_tex"
+    Shape "wavefront" "string filename" ["geometry/chess/bishop2.white.obj"]
+ObjectEnd
+ObjectBegin "chessboard.dark_squares.obj"
+    Texture "diffuse_tex" "color" "imagemap" "string filename" ["textures/chess/black_squares.diffuse0000.exr"] #"float uscale" [-1.0] "float vscale" [-1.0]
+        Material "substrate" "texture Kd" "diffuse_tex"
+    Shape "wavefront" "string filename" ["geometry/chess/black_squares2.obj"]
+ObjectEnd
+ObjectBegin "chessboard.light_squares.obj"
+    Texture "diffuse_tex" "color" "imagemap" "string filename" ["textures/chess/white_squares.diffuse0000.exr"] #"float vscale" [-1.0]
+        Material "matte" "texture Kd" "diffuse_tex"  
+    Shape "wavefront" "string filename" ["geometry/chess/white_squares2.obj"]
+ObjectEnd
+ObjectBegin "chessboard.sides.obj"
+    Texture "constant_tex" "color" "constant" "color value" [.4 .4 .4]
+        #Material "matte" "color Kd" [.4 .4 .4]
+        Material "plastic" "texture Kd" "constant_tex"
+    Shape "wavefront" "string filename" ["geometry/chess/chessboard.sides.obj"]
+ObjectEnd
+ObjectBegin "king.white.obj"
+    Texture "constant_tex" "color" "constant" "color value" [.9 .9 .9]
+        #Material "matte" "color Kd" [.9 .9 .9]
+        Material "plastic" "texture Kd" "constant_tex"
+    Shape "wavefront" "string filename" ["geometry/chess/king.white.obj"]
+ObjectEnd
+ObjectBegin "pawn1.white.obj"
+    Texture "constant_tex" "color" "constant" "color value" [.9 .9 .9]
+        #Material "matte" "color Kd" [.9 .9 .9]
+        Material "plastic" "texture Kd" "constant_tex"
+    Shape "wavefront" "string filename" ["geometry/chess/pawn1.white.obj"]
+ObjectEnd
+ObjectBegin "pawn2.white.obj"
+    Texture "constant_tex" "color" "constant" "color value" [.9 .9 .9]
+        #Material "matte" "color Kd" [.9 .9 .9]
+        Material "plastic" "texture Kd" "constant_tex"
+    Shape "wavefront" "string filename" ["geometry/chess/pawn2.white.obj"]
+ObjectEnd
+ObjectBegin "pawn.black.obj" 
+    Translate 0.034288 0 0.08274
+    Texture "diffuse_tex" "color" "imagemap" "string filename" ["textures/chess/black_pawn.diffuse0000.exr"] #"float vscale" [-1.0]
+    Texture "glossiness_tex" "float" "imagemap" "string filename" ["textures/chess/black_pawn.glossiness0000.exr"] #"float vscale" [-1.0]
+    Texture "specularity_tex" "color" "imagemap" "string filename" ["textures/chess/black_pawn.specularity0000.exr"] #"float vscale" [-1.0]
+    Texture "bump_tex" "float" "imagemap" "string filename" ["textures/chess/black_pawn.bump0000.exr"] #"float vscale" [-1.0]
+
+
+
+
+    Texture "constant4_tex" "color" "constant" "color value" [0.5 0.5 0.5]
+    Texture "diffuse2_tex" "color" "scale" "texture tex1" "constant4_tex" "texture tex2" "diffuse_tex"  
+
+
+    Texture "constant_tex" "float" "constant" "float value" [0]
+    Texture "mixvalue_tex" "float" "constant" "float value" [0.0025]
+    Texture "bump2_tex" "float" "mix" "texture tex1" "constant_tex" "texture tex2" "bump_tex" "texture amount" "mixvalue_tex"
+    Texture "constant3_tex" "float" "constant" "float value" [-1.0]
+    Texture "bump3_tex" "float" "scale" "texture tex1" "constant3_tex" "texture tex2" "bump2_tex"  
+
+
+    Texture "constant1_tex" "float" "constant" "float value" [0.15]
+    Texture "glossiness2_tex" "float" "divide" "texture tex1" "constant1_tex" "texture tex2" "glossiness_tex"  
+    Texture "glossiness3_tex" "float" "scale" "texture tex1" "glossiness2_tex" "texture tex2" "glossiness2_tex"  
+    Texture "glossiness4_tex" "float" "scale" "texture tex1" "glossiness3_tex" "texture tex2" "glossiness3_tex"  
+
+
+    Texture "constant2_tex" "color" "constant" "color value" [1.5 1.5 1.5]
+    Texture "specularity2_tex" "color" "scale" "texture tex1" "constant2_tex" "texture tex2" "specularity_tex"  
+
+        Material "substrate" 
+    "texture Kd" "diffuse_tex" 
+    "texture Ks" "specularity2_tex" 
+    "texture uroughness" "glossiness4_tex" 
+    "texture vroughness" "glossiness4_tex" 
+    "texture bumpmap" "bump3_tex"
+
+    Shape "wavefront" "string filename" ["geometry/chess/black_pawn3.obj"]
+ObjectEnd
+ObjectBegin "queen.black.obj"
+      Translate 0.023704 0 0.12337
+    #Rotate 90 0 1 0
+
+    Texture "diffuse_tex" "color" "imagemap" "string filename" ["textures/chess/black_queen.diffuse0000.exr"] #"float vscale" [-1.0]
+    Texture "glossiness_tex" "float" "imagemap" "string filename" ["textures/chess/black_queen.glossiness0000.exr"] #"float vscale" [-1.0]
+    Texture "specularity_tex" "color" "imagemap" "string filename" ["textures/chess/black_queen.specularity0000.exr"] #"float vscale" [-1.0]
+    Texture "bump_tex" "float" "imagemap" "string filename" ["textures/chess/black_queen.bump0000.exr"] #"float vscale" [-1.0]
+
+
+
+    Texture "constant4_tex" "color" "constant" "color value" [0.5 0.5 0.5]
+    Texture "diffuse2_tex" "color" "scale" "texture tex1" "constant4_tex" "texture tex2" "diffuse_tex"  
+
+
+    Texture "constant_tex" "float" "constant" "float value" [0]
+    Texture "mixvalue_tex" "float" "constant" "float value" [0.0025]
+    Texture "bump2_tex" "float" "mix" "texture tex1" "constant_tex" "texture tex2" "bump_tex" "texture amount" "mixvalue_tex"
+    Texture "constant3_tex" "float" "constant" "float value" [-1.0]
+    Texture "bump3_tex" "float" "scale" "texture tex1" "constant3_tex" "texture tex2" "bump2_tex"  
+
+
+    Texture "constant1_tex" "float" "constant" "float value" [0.15]
+    Texture "glossiness2_tex" "float" "divide" "texture tex1" "constant1_tex" "texture tex2" "glossiness_tex"  
+    Texture "glossiness3_tex" "float" "scale" "texture tex1" "glossiness2_tex" "texture tex2" "glossiness2_tex"  
+    Texture "glossiness4_tex" "float" "scale" "texture tex1" "glossiness3_tex" "texture tex2" "glossiness3_tex"  
+
+
+    Texture "constant2_tex" "color" "constant" "color value" [1.5 1.5 1.5]
+    Texture "specularity2_tex" "color" "scale" "texture tex1" "constant2_tex" "texture tex2" "specularity_tex"  
+
+        Material "substrate" 
+    "texture Kd" "diffuse_tex" 
+    "texture Ks" "specularity2_tex" 
+    "texture uroughness" "glossiness4_tex" 
+    "texture vroughness" "glossiness4_tex" 
+    "texture bumpmap" "bump3_tex"
+
+
+
+    Shape "wavefront" "string filename" ["geometry/chess/black_queen3.obj"]
+ObjectEnd
+ObjectBegin "queen.white.obj"
+    Texture "constant_tex" "color" "constant" "color value" [.9 .9 .9]
+        #Material "matte" "color Kd" [.9 .9 .9]
+        Material "plastic" "texture Kd" "constant_tex"
+    Shape "wavefront" "string filename" ["geometry/chess/queen.white.obj"]
+ObjectEnd
+
+
+ObjectInstance "bishop1.white.obj"
+ObjectInstance "bishop2.white.obj"
+ObjectInstance "chessboard.dark_squares.obj"
+ObjectInstance "chessboard.light_squares.obj"
+ObjectInstance "chessboard.sides.obj"
+ObjectInstance "king.white.obj"
+ObjectInstance "pawn1.white.obj"
+ObjectInstance "pawn2.white.obj"
+ObjectInstance "pawn.black.obj"
+ObjectInstance "queen.black.obj"
+ObjectInstance "queen.white.obj"
+
+
+WorldEnd
