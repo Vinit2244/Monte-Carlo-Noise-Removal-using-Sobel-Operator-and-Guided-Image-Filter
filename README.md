@@ -14,8 +14,40 @@ This project replicates the implementation of the following research paper:
 📦 Monte-Carlo-Noise-Removal-using-Sobel-Operator-and-Guided-Image-Filter
 ├── 📁 media/
 │   ├── 📁 input/
+│   │   ├── 📁 cuboids/
+│   │   │   ├── 📄 10.png
+│   │   │   ├── 📄 100.png
+│   │   │   ├── 📄 1000.png
+│   │   │   ├── 📄 BW_10.png
+│   │   │   ├── 📄 BW_100.png
+│   │   │   ├── 📄 BW_1000.png
+│   │   │   ├── 📄 depth.png
+│   │   │   ├── 📄 normal.png
+│   │   │   └── 📄 texture.png
 │   ├── 📁 output/
+│   │   ├── 📄 alpha_heatmap10.png
+│   │   ├── 📄 alpha_heatmap100.png
+│   │   ├── 📄 alpha_heatmap1000.png
+│   │   ├── 📄 feature_choice_10.png
+│   │   ├── 📄 feature_choice_100.png
+│   │   ├── 📄 feature_choice_1000.png
+│   │   ├── 📄 filtered_10.png
+│   │   ├── 📄 filtered_100.png
+│   │   ├── 📄 filtered_1000.png
+│   │   ├── 📄 filtered_depth_map_10.png
+│   │   ├── 📄 filtered_depth_map_100.png
+│   │   ├── 📄 filtered_depth_map_1000.png
+│   │   ├── 📄 filtered_normal_map_10.png
+│   │   ├── 📄 filtered_normal_map_100.png
+│   │   ├── 📄 filtered_normal_map_1000.png
+│   │   ├── 📄 filtered_texture_map_10.png
+│   │   ├── 📄 filtered_texture_map_100.png
+│   │   ├── 📄 filtered_texture_map_1000.png
+│   │   ├── 📄 gradient_map_10.png
+│   │   ├── 📄 gradient_map_100.png
+│   │   └── 📄 gradient_map_1000.png
 ├── 📁 src/
+│   ├── 📄 alpha_value.txt
 │   └── 📄 main.ipynb
 ├── 📄 .gitignore
 ├── 📄 DIP_Project_Proposal.pdf
